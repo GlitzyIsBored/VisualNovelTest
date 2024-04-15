@@ -79,7 +79,7 @@
         "Are you looking for a specific book in particular?",
         "...",
         "Or.. are you here for something else?",
-        "If that's so, I can't really help you there.",
+        "If that's so, the library isn't suitable for your other dilemmas.",
     ];
 
     let currentDialogueIndex = 0;
@@ -91,7 +91,7 @@
             currentDialogueIndex++;
         } else {
             document.querySelector(".charName").innerHTML = "You"
-            document.getElementById("charDialogue").innerHTML = "Yeah honestly, he's not much of a helpful guy. I guess I'll leave him be.";
+            document.getElementById("charDialogue").innerHTML = "*Yeah honestly, he's not much of a helpful guy. I guess I'll leave him be.*";
             trigger.disabled = true;
         }
     });
