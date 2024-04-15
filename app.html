@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PYAPPLICATION OGM</title>
+</head>
+<body>
+    <h1>I hate javascript</h1>
+    <div id="scene">
+        
+        <img id="cynfael" src="spriteOne.png">
+
+            <div id="dialogueBox">
+                <h1 class="charName">???</h1>
+                <p id="charDialogue">I set my eyes on someone who looked familiar to me. I should approach him and say Hi.</p>
+                <button id="continue">NEXT</button>
+            </div>
+    </div>
+
+    <style>
+        body {
+            background-color: rgb(31, 32, 53);
+            color: white;
+        }
+        #scene {
+            width: 52vw;
+            min-width: 1000px;
+            min-height: 62vh;
+            height: 62vh;
+            border: solid rgb(93, 26, 99) 2px;
+            margin-right: auto;
+            margin-left: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 20px;
+            background-image: url(background.jpg);
+            background-size: cover;
+        }
+        #dialogueBox {
+            height: 20vh;
+            width: 80%;
+            border: solid blueviolet 2px;
+            background-color: rgba(174, 107, 236, 0.26);
+            position: relative;
+            margin-top: auto;
+            border-radius: 20px;
+        }
+        #charDialogue {
+            color: white;
+            font-size: 30px;
+            margin-left: 2%;
+        }
+        .charName {
+            color: white;
+            font-size: 30px;
+        }
+        #continue {
+            background-color: purple;
+            height: 30px;
+            width: 80px;
+            margin: 10px;
+            border-radius: 20px;
+        }
+        #cynfael {
+            width: 30vw;
+            position: absolute;
+            margin-top: auto;
+            bottom: 32%;
+        }
+    </style>
+    <script>
+    const name = prompt("Reveal thy name");
+
+    var dialogue = [
+        `It's you, ${name}.`,
+        "I.. did not expect to see you here.",
+        "Are you looking for a specific book in particular?",
+        "...",
+        "Or.. are you here for something else?",
+        "If that's so, I can't really help you there.",
+    ];
+
+    let currentDialogueIndex = 0;
+
+    const trigger = document.getElementById("continue");
+    trigger.addEventListener("click", function() {
+        if (currentDialogueIndex < dialogue.length) {
+            document.getElementById("charDialogue").innerHTML = dialogue[currentDialogueIndex];
+            currentDialogueIndex++;
+        } else {
+            document.querySelector(".charName").innerHTML = "You"
+            document.getElementById("charDialogue").innerHTML = "Yeah honestly, he's not much of a helpful guy. I guess I'll leave him be.";
+            trigger.disabled = true;
+        }
+    });
+    </script>
+</body>
+</html>
